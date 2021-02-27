@@ -1,15 +1,19 @@
 global1 = 34
+#print(global1)
 
-def cambiar_global():
+def cambiar_global(val1):
     '''Cambiar una variable global
 
     Esta función debe asignarle a la variable global `global1` el valor que se
     le pasa como único argumento posicional.
     '''
+    global global1 
+    global1 = val1
+    return global1
     pass
+cambiar_global(2)
 
-
-def anio_bisiesto():
+def anio_bisiesto(anio):
     '''Responder si el entero pasado como argumento es un año bisiesto
     
     Para determinar si un año es bisiesto, se deben tener en cuenta las 
@@ -21,14 +25,20 @@ def anio_bisiesto():
 
     Retorna True o False
     '''
+    if anio % 4 == 0 and anio % 100 != 0 and anio % 400:
+      return True
+    else:
+      return False
+
     pass
 
-def contar_valles():
+def contar_valles(lista):
     r'''Contar el número de valles
 
     Esta función debe recibir como argumento una lista de -1's, 0's y 1's, y lo 
     que representan son las subidas y las bajadas en una ruta de caminata. -1
-    representa un paso hacia abajo, el 0 representa un paso hacia adelante y el 
+    representa un paso 
+    hacia abajo, el 0 representa un paso hacia adelante y el 
     1 representa un paso hacia arriba, entonces por ejemplo, para la lista
     [-1,1,0,1,1,-1,0,0,1,-1,1,1,-1,-1] representa la siguiente ruta:
 
@@ -41,7 +51,24 @@ def contar_valles():
     representados en la lista, que para el ejemplo que se acaba de mostrar es
     de 3 valles.
     '''
+    conteo = 0
+    n = 0
+#negativo a positivo
+    print(len(lista))
+    print(len(lista)-5)
+    for el in lista:
+      print('n',n)
+      print('el',el)
+      #print(lista[n+1])
+      if n < 13:
+        if el == -1 and lista[n+1] >= 0:
+          conteo += 1 
+        n += 1
+      
+    return conteo 
     pass
+
+print(contar_valles([-1,1,0,1,1,-1,0,0,1,-1,1,1,-1,-1]))
 
 def saltando_rocas():
     '''Mínimo número de saltos en las rocas
@@ -69,6 +96,7 @@ def pares_medias():
     uno de los colores que se encuentren en la lista, y los valores son la 
     cantidad de pares que se han encontrado para cada color.
     '''
+    # no se deben contar las medias que no tienen par 
     pass
 
 # Crear una clase llamada `ListaComa` que reciba en su constructor un iterable
