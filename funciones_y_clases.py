@@ -67,7 +67,7 @@ def contar_valles(lista):
     return conteo 
     pass
 
-print(contar_valles([-1,1,0,1,1,-1,0,0,1,-1,1,1,-1,-1]))
+#print(contar_valles([-1,1,0,1,1,-1,0,0,1,-1,1,1,-1,-1]))
 
 def saltando_rocas(lista):
     '''Mínimo número de saltos en las rocas
@@ -84,18 +84,32 @@ def saltando_rocas(lista):
     jugador para ganar la partida
     '''
     #lista = [1,0,0,1,0,1,1]
-    # [0,1,1,0,1,0]
+    # [0,1,1,0,0,1,0]
     # [0,0,1,0,1,1,0]
     n = 0
     salto = 0
 
     for el in lista:
       if n < (len(lista)-1):
-        if lista[n] == 0 and lista[n+1]== 0:
+        print('valor n',n)
+        print('posicion',lista[n])
+        if lista[n] == 0 and lista[n+1]== 1:
+          salto += 0
+          print('primer if')
+        elif lista[n] == 0 and lista[n+1]== 1 :
+          salto += 0
+        elif lista[n] == 1 and lista[n+1]== 1:
+          salto += 0
+        elif lista[n] == 1 and lista[n+1]== 0:
           salto += 1
+        n += salto
+    
+    return salto
 
 
     pass
+
+print(saltando_rocas([0,0,1,0,1,1,0]))
 
 def pares_medias():
     '''Contar pares de medias
@@ -115,6 +129,23 @@ def pares_medias():
 # `lista`. Implementar el método __str__ para que devuelva un string con todos
 # los elementos del atributo `lista` unidos a través de comas. Ejemplo:
 # si `lista` es [1,2,3,4], __str__ debe devolver '1,2,3,4'
+
+class ListaComa:
+  lista = None
+  
+  def __init__(self,lista):
+      self.lista = lista
+      print(lista)
+      #return lista
+  
+  def __str__(self):
+    #return " ".join([str(_) for _ in self.lista])
+    return ",".join(map(str,self.lista))
+
+
+#l = ListaComa(['a','b'])
+l = ListaComa([1,2,3,4])
+print('clase',str(l))
 
 
 
