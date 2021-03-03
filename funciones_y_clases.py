@@ -166,9 +166,20 @@ print('clase',str(l))
 # si `nombres` es ['Juan', 'David'] y `apellidos` es ['Torres', 'Salazar'],
 # el método `nombre completo` debe devolver  'Juan David Torres Salazar'
 
+class Persona: 
+    nombres = []
+    apellidos = []
+    
+    def __init__(self,nombres,apellidos):
+        self.nombres = " ".join(map(str,nombres)).capitalize()
+        self.apellidos = " ".join(map(str,apellidos)).capitalize()
 
+    def nombre_completo(self): 
+      return self.nombres + ' ' + self.apellidos        
+      #return self.apellidos + ','
 
-
+juan = Persona(['jose','david'],['gomez','diaz'])
+print(juan.nombre_completo())
 
 # Crear una clase llamada `Persona1` que herede de la clase `Persona`, y que en su
 # constructor reciba además de los atributos del padre, una variable tipo 
